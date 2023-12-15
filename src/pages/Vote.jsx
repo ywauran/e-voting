@@ -8,7 +8,7 @@ import { getDatabase, ref, push, get } from "firebase/database";
 import { app } from "../config/Firebase";
 
 const Vote = () => {
-  const [name, setName] = useState("Harke");
+  const [name, setName] = useState("");
   const [selectedNomineeAsn, setSelectedNomineeAsn] = useState(null);
   const [selectedNomineeThl, setSelectedNomineeThl] = useState(null);
   const [activeTab, setActiveTab] = useState("asn");
@@ -25,7 +25,7 @@ const Vote = () => {
   // Effect to get and set values from localStorage on component mount
   useEffect(() => {
     const storedName = localStorage.getItem("name");
-    const storedNPnP = localStorage.getItem("NPnP");
+    const storedNPnP = localStorage.getItem("number");
 
     // Check if values exist in localStorage before setting state
     if (storedName) {
@@ -74,6 +74,7 @@ const Vote = () => {
         // Handle error accordingly
       });
   }, []);
+
   const handleVoteSubmit = () => {
     const votesRef = ref(database, "votes");
 

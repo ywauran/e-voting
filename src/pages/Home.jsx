@@ -48,14 +48,14 @@ const Home = () => {
     if (number === "") {
       setMessage("NPnP/NIP harus diisi");
     } else if (number) {
-      const user = data.find((item) => item.NPnP === number);
+      const user = data.find((item) => item.number === number);
 
       if (user) {
-        const { NPnP, NamaLengkap } = user;
+        const { name, number } = user;
 
         // Simpan NPnP dan nama ke dalam localStorage
-        localStorage.setItem("NPnP", NPnP);
-        localStorage.setItem("name", NamaLengkap);
+        localStorage.setItem("number", number);
+        localStorage.setItem("name", name);
 
         // Arahkan ke halaman /vote
         navigate("/vote", { state: { number } });
