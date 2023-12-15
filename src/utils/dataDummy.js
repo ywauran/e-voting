@@ -1,32 +1,71 @@
-export const dummyNominees = [
+export const dummyNomineesASN = [
   {
     id: "1",
-    name: "Yohanes Harke Wauran",
-    position: "Balai Teknologi, Informasi dan Komunikasi Pendidikan",
+    name: " Cicilia R. Damasar, S.E.",
+    position: "Keuangan",
   },
   {
     id: "2",
-    name: "John Doe",
-    position: "Department of Technology",
+    name: "Fenny R. A. Bolang, SE",
+    position: "SMK",
   },
   {
     id: "3",
-    name: "Jane Doe",
-    position: "Department of Science",
+    name: "Sabeth",
+    position: "Keuangan",
   },
   {
     id: "4",
-    name: "Alice Smith",
-    position: "Research and Development",
+    name: "Thelma T. F. Muaja, S.H.",
+    position: "GTK",
   },
   {
     id: "5",
-    name: "Bob Johnson",
-    position: "Engineering Department",
+    name: "Adolof Abadi, A.Md.KP",
+    position: "Kepegawaian",
   },
   {
     id: "6",
-    name: "Eva Brown",
-    position: "Marketing and Communications",
+    name: "Febe Roeroe, S.E.",
+    position: "Keuangan",
+  },
+];
+
+export const dummyNomineesTHL = [
+  {
+    id: "1",
+    name: "Asriyani Tambone",
+    position: "Balai Teknologi, Informasi dan Komunikasi Pendidikan",
+    photo: "../assets/thalia.jpg",
+  },
+  {
+    id: "2",
+    name: "Atfri Makarawung",
+    position: "Department of Technology",
+    photo: "../assets/thalia.jpg",
+  },
+  {
+    id: "3",
+    name: "Calvyn G. Piri",
+    position: "Department of Science",
+    photo: "../assets/thalia.jpg",
+  },
+  {
+    id: "4",
+    name: "Sendi K. Waworuntu",
+    position: "Research and Development",
+    photo: "../assets/thalia.jpg",
+  },
+  {
+    id: "5",
+    name: "Octaviani T. M Panekenan, S.Tr.Kom",
+    position: "Balai Teknologi, Informasi dan Komunikasi Pendidikan",
+    photo: "../assets/thalia.jpg",
+  },
+  {
+    id: "6",
+    name: "Try Sutrisno Syam",
+    position: "Balai Teknologi, Informasi dan Komunikasi Pendidikan",
+    photo: "../assets/thalia.jpg",
   },
 ];

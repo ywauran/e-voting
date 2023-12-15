@@ -70,7 +70,10 @@ const Home = () => {
 
   return (
     <>
-      <h2 className="text-3xl font-bold text-center text-gray-400">
+      <h1 className="text-3xl font-bold text-center text-gray-800">
+        Dikda Prov Sulut Employee of the year
+      </h1>
+      <h2 className="mt-4 text-3xl font-bold text-center text-gray-400">
         Mari Mulai Voting
       </h2>
       <div className="flex justify-center">

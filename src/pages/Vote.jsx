@@ -1,11 +1,65 @@
 import { useState, useEffect } from "react";
-import { dummyNominees } from "../utils/dataDummy";
+import { dummyNomineesASN } from "../utils/dataDummy";
 import ImageDefault from "../assets/image_default.jpg";
+import Thalia from "../assets/thalia.jpg";
+import Try from "../assets/try.jpg";
+import Asri from "../assets/asri.jpg";
+import Atfri from "../assets/atfri.jpg";
+import Calvyn from "../assets/calvin.jpeg";
+import Sendi from "../assets/sendi.jpg";
 import ImageWaiting from "../assets/waiting.jpg";
 import ModalConfirmation from "../components/ModalConfirmation";
 import { getDatabase, ref, push, get } from "firebase/database";
 
 import { app } from "../config/Firebase";
+
+const dummyNomineesTHL = [
+  {
+    id: "1",
+    name: "Asriyani Tambone",
+    position: "Sekretariat",
+    photo: "../assets/thalia.jpg",
+  },
+  {
+    id: "2",
+    name: "Atfri Makarawung",
+    position: "Department of Technology",
+    photo: "../assets/thalia.jpg",
+  },
+  {
+    id: "3",
+    name: "Calvyn G. Piri",
+    position: "Department of Science",
+    photo: "../assets/thalia.jpg",
+  },
+  {
+    id: "4",
+    name: "Sendi K. Waworuntu",
+    position: "Research and Development",
+    photo: "../assets/thalia.jpg",
+  },
+  {
+    id: "5",
+    name: "Octaviani T. M Panekenan, S.Tr.Kom",
+    position: "Balai Teknologi, Informasi dan Komunikasi Pendidikan",
+    photo: "../assets/thalia.jpg",
+  },
+  {
+    id: "6",
+    name: "Try Sutrisno Syam",
+    position: "Balai Teknologi, Informasi dan Komunikasi Pendidikan",
+    photo: "../assets/thalia.jpg",
+  },
+];
+
+const imageMap = {
+  1: Asri,
+  2: Atfri,
+  3: Calvyn,
+  4: Sendi,
+  5: Thalia,
+  6: Try,
+};
 
 const Vote = () => {
   const [name, setName] = useState("");
@@ -90,6 +144,7 @@ const Vote = () => {
 
         if (userAlreadyVoted) {
           setError(`Maaf, ${name} sudah melakukan vote sebelumnya.`);
+          setOpenModalConfirmation(false);
         } else {
           const newVote = {
             name,
@@ -178,43 +233,85 @@ const Vote = () => {
                 ? "Nominatif ASN Employee of the year 2023"
                 : "Nominatif THL Employee of the year 2023"}
             </h3>
-            <div className="grid grid-cols-1 gap-4">
-              {dummyNominees.map((nominee) => (
-                <div
-                  key={nominee.id}
-                  className={`p-4 border cursor-pointer ${
-                    activeTab === "asn"
-                      ? selectedNomineeAsn === nominee.id
+            {activeTab === "asn" ? (
+              <>
+                <div className="grid grid-cols-1 gap-4">
+                  {dummyNomineesASN.map((nominee) => (
+                    <div
+                      key={nominee.id}
+                      className={`p-4 border cursor-pointer ${
+                        activeTab === "asn"
+                          ? selectedNomineeAsn === nominee.id
+                            ? "bg-red-100"
+                            : ""
+                          : selectedNomineeThl === nominee.id
+                          ? "bg-red-100"
+                          : ""
+                      }`}
+                      onClick={() => handleNomineeSelect(nominee.id)}
+                    >
+                      <div className="flex items-center justify-center ">
+                        <div className="p-4 mx-auto bg-white shadow-xl rounded-3xl">
+                          <div className="grid flex-col max-w-sm shadow-sm rounded-3xl place-items-center">
+                            <img
+                              src={ImageDefault}
+                              className="grid justify-center object-cover rounded-t-3xl h-80"
+                              alt="Yohanes Harke Wauran"
+                            />
+                            <div className="z-10 grid p-6 group">
+                              <h4 className="font-bold group-hover:text-cyan-700 sm:text-2xl line-clamp-2">
+                                {nominee.name}
+                              </h4>
+                              <p className="pt-2 text-base font-semibold text-slate-400">
+                                {nominee.position}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <div className="grid grid-cols-1 gap-4">
+                {dummyNomineesTHL.map((nominee) => (
+                  <div
+                    key={nominee.id}
+                    className={`p-4 border cursor-pointer ${
+                      activeTab === "asn"
+                        ? selectedNomineeAsn === nominee.id
+                          ? "bg-red-100"
+                          : ""
+                        : selectedNomineeThl === nominee.id
                         ? "bg-red-100"
                         : ""
-                      : selectedNomineeThl === nominee.id
-                      ? "bg-red-100"
-                      : ""
-                  }`}
-                  onClick={() => handleNomineeSelect(nominee.id)}
-                >
-                  <div className="flex items-center justify-center ">
-                    <div className="p-4 mx-auto bg-white shadow-xl rounded-3xl">
-                      <div className="grid flex-col max-w-sm shadow-sm rounded-3xl place-items-center">
-                        <img
-                          src={ImageDefault}
-                          className="grid justify-center object-cover rounded-t-3xl h-80"
-                          alt="Yohanes Harke Wauran"
-                        />
-                        <div className="z-10 grid p-6 group">
-                          <h4 className="font-bold group-hover:text-cyan-700 sm:text-2xl line-clamp-2">
-                            {nominee.name}
-                          </h4>
-                          <p className="pt-2 text-base font-semibold text-slate-400">
-                            {nominee.position}
-                          </p>
+                    }`}
+                    onClick={() => handleNomineeSelect(nominee.id)}
+                  >
+                    <div className="flex items-center justify-center ">
+                      <div className="p-4 mx-auto bg-white shadow-xl rounded-3xl">
+                        <div className="grid flex-col max-w-sm shadow-sm rounded-3xl place-items-center">
+                          <img
+                            src={imageMap[nominee.id] || Try} // Jika tidak ada pemetaan, tampilkan gambar default (Image6)
+                            className="grid justify-center object-cover rounded-t-3xl h-80"
+                            alt="Yohanes Harke Wauran"
+                          />
+                          <div className="z-10 grid p-6 group">
+                            <h4 className="font-bold group-hover:text-cyan-700 sm:text-2xl line-clamp-2">
+                              {nominee.name}
+                            </h4>
+                            <p className="pt-2 text-base font-semibold text-slate-400">
+                              {nominee.position}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
 
             {error && <p className="p-4 mt-4 text-white bg-red-700">{error}</p>}
 
