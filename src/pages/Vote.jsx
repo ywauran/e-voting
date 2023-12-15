@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { dummyNominees } from "../utils/dataDummy";
 import ImageDefault from "../assets/image_default.jpg";
 import ImageWaiting from "../assets/waiting.jpg";
@@ -22,6 +22,23 @@ const Vote = () => {
     setError(null);
   };
 
+  // Effect to get and set values from localStorage on component mount
+  useEffect(() => {
+    const storedName = localStorage.getItem("name");
+    const storedNPnP = localStorage.getItem("NPnP");
+
+    // Check if values exist in localStorage before setting state
+    if (storedName) {
+      setName(storedName);
+    }
+
+    // Assuming NPnP is a number, check if it's not null or undefined
+    if (storedNPnP !== null && storedNPnP !== undefined) {
+      // Convert the stored NPnP to a number if needed
+      // and use it to set state or perform any other necessary actions
+    }
+  }, []);
+
   const handleNomineeSelect = (nomineeId) => {
     if (activeTab === "asn") {
       setSelectedNomineeAsn(
@@ -35,15 +52,34 @@ const Vote = () => {
     setError(null);
   };
 
+  useEffect(() => {
+    const votesRef = ref(database, "votes");
+    get(votesRef)
+      .then((snapshot) => {
+        let userAlreadyVoted = false;
+
+        snapshot.forEach((childSnapshot) => {
+          const vote = childSnapshot.val();
+          if (vote.name === name) {
+            userAlreadyVoted = true;
+          }
+        });
+
+        if (userAlreadyVoted) {
+          setIsVoting(true);
+        }
+      })
+      .catch((error) => {
+        console.error("Error checking existing vote: ", error);
+        // Handle error accordingly
+      });
+  }, []);
   const handleVoteSubmit = () => {
-    // Check if the user's name already exists in the database
     const votesRef = ref(database, "votes");
 
     get(votesRef)
       .then((snapshot) => {
         let userAlreadyVoted = false;
-
-        // Loop through the existing votes to check if the user has already voted
         snapshot.forEach((childSnapshot) => {
           const vote = childSnapshot.val();
           if (vote.name === name) {
@@ -54,15 +90,12 @@ const Vote = () => {
         if (userAlreadyVoted) {
           setError(`Maaf, ${name} sudah melakukan vote sebelumnya.`);
         } else {
-          // If the user's name doesn't exist, proceed with the vote
           const newVote = {
             name,
             selectedNomineeAsn,
             selectedNomineeThl,
             timestamp: Date.now(),
           };
-
-          // Push the new vote to the "votes" node
           push(votesRef, newVote)
             .then(() => {
               setIsVoting(true);
@@ -73,13 +106,11 @@ const Vote = () => {
             })
             .catch((error) => {
               console.error("Error adding vote: ", error);
-              // Handle error accordingly
             });
         }
       })
       .catch((error) => {
         console.error("Error checking existing vote: ", error);
-        // Handle error accordingly
       });
   };
 
