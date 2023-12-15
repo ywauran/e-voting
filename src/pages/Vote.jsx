@@ -197,9 +197,10 @@ const Vote = () => {
         <>
           <div className="flex flex-col items-center justify-center mt-8">
             <img src={ImageWaiting} alt="Waiting" className="w-80 h-96" />
-            <h4 className="mt-4 text-2xl font-bold text-center text-gray-500">
-              Anda sudah melakukan vote
-            </h4>
+            <h3 className="mt-4 text-xl font-bold">Terima kasih!</h3>
+            <p className="mt-2 text-lg text-gray-600">
+              Terima kasih atas partisipasi Anda dalam memberikan suara.
+            </p>
           </div>
         </>
       ) : (

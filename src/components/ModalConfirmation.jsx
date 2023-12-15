@@ -1,12 +1,12 @@
 const ModalConfirmation = ({ onClose, onSubmit }) => {
   return (
-    <div className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded shadow-md">
+    <div className="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-gray-800 bg-opacity-50">
+      <div className="p-8 bg-white rounded shadow-md">
         <div className="flex justify-end">
           <button
             type="button"
             onClick={() => onClose(false)}
-            className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+            className="inline-flex items-center justify-center w-8 h-8 text-sm text-gray-400 bg-transparent rounded-lg hover:bg-gray-200 hover:text-gray-900 ms-auto dark:hover:bg-gray-600 dark:hover:text-white"
             data-modal-hide="static-modal"
           >
             <svg
@@ -27,24 +27,21 @@ const ModalConfirmation = ({ onClose, onSubmit }) => {
             <span className="sr-only">Close modal</span>
           </button>
         </div>
-        <h4 className="text-lg mt-4 font-bold mb-1">
+        <h4 className="mt-4 mb-1 text-lg font-bold">
           Anda yakin ingin melakukan vote?
         </h4>
         <p className="text-xs text-red-600">
           Anda hanya bisa melakukan vote 1x
         </p>
-        <div
-          className="
-        mt-4 flex justify-center space-x-2"
-        >
+        <div className="flex justify-center mt-4 space-x-2 ">
           <button
             onClick={() => onSubmit()}
-            className="bg-red-600 text-white font-bold py-2 px-4"
+            className="px-4 py-2 font-bold text-white bg-red-600"
           >
             Ya
           </button>
           <button
-            className="bg-white text-red-700 font-bold py-2 px-4  border-2 border-red-700"
+            className="px-4 py-2 font-bold text-red-700 bg-white border-2 border-red-700"
             onClick={() => onClose(false)}
           >
             Tidak
