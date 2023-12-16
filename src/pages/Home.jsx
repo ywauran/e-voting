@@ -78,6 +78,12 @@ const Home = () => {
       <h1 className="text-3xl font-bold text-center text-gray-800">
         DIKDA Prov Sulut Employee of the year
       </h1>
+      <p className="mt-2 font-semibold text-center text-gray-700">
+        Dalam aplikasi akan menampilkan 6 Nominasi ASN dan Nominasi THL, Mari
+        berpartipasi memilih ASN dan THL yang berkinerja dan berprestasi menurut
+        anda!!
+      </p>
+      <h4 className="mt-4 text-2xl font-bold text-center">DIKDA HEBAT</h4>
       <h2 className="mt-4 text-3xl font-bold text-center text-gray-400">
         Mari Mulai Voting
       </h2>

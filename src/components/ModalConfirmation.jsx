@@ -50,6 +50,11 @@ const ModalConfirmation = ({
             <span className="font-bold">{selectedNomineeThlName}</span>
           </h5>
         </div>
+        <div className="mt-2">
+          <p className="text-sm font-semibold text-red-500">
+            Voting anda bersifat tertutup/rahasia hanya admin yang bisa lihat
+          </p>
+        </div>
         <div className="flex justify-center mt-4 space-x-2 ">
           <button
             onClick={() => onSubmit()}
