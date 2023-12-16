@@ -203,11 +203,11 @@ const Vote = () => {
       );
     } else if (selectedNomineeAsn === null) {
       setError(
-        "Silakan pilih satu nominasi pada kategori ASN sebelum mengirim suara Anda."
+        "Anda belum memilih pilih satu nominasi pada kategori ASN sebelum mengirim suara Anda."
       );
     } else if (selectedNomineeThl === null) {
       setError(
-        "Silakan pilih satu nominasi pada kategori THL sebelum mengirim suara Anda."
+        "Anda belum memilih pilih satu nominasi pada kategori THL sebelum mengirim suara Anda."
       );
     } else {
       setOpenModalConfirmation(true);
@@ -261,7 +261,7 @@ const Vote = () => {
                 }`}
                 onClick={() => handleTabChange("asn")}
               >
-                Nominasi ASN
+                Kategori ASN
               </button>
               <button
                 className={`${
@@ -271,14 +271,14 @@ const Vote = () => {
                 }`}
                 onClick={() => handleTabChange("thl")}
               >
-                Nominasi THL
+                Kategori THL
               </button>
             </div>
 
             <h3 className="text-xl font-semibold text-left">
               {activeTab === "asn"
-                ? "Nominasi ASN Employee of the year 2023"
-                : "Nominasi THL Employee of the year 2023"}
+                ? "Kategori ASN Employee of the year 2023"
+                : "Kategori THL Employee of the year 2023"}
             </h3>
             {activeTab === "asn" ? (
               <>

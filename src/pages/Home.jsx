@@ -30,6 +30,7 @@ const Home = () => {
     } else if (number) {
       const user = data.find((item) => item.number === number);
 
+      console.log(data.length);
       if (user) {
         const { name, number } = user;
         const votesRef = ref(database, "votes");
@@ -75,7 +76,7 @@ const Home = () => {
     <>
       <img src={Logo} alt="" className="w-32 h-32 mx-auto" />
       <h1 className="text-3xl font-bold text-center text-gray-800">
-        Dikda Prov Sulut Employee of the year
+        DIKDA Prov Sulut Employee of the year
       </h1>
       <h2 className="mt-4 text-3xl font-bold text-center text-gray-400">
         Mari Mulai Voting
@@ -134,7 +135,7 @@ const Home = () => {
                   className="block mb-2 font-bold text-left text-gray-700"
                   htmlFor="username"
                 >
-                  NIP/NPnP
+                  NIP(ASN)/NPnP(THL)
                 </label>
                 <input
                   onChange={(e) => {
@@ -145,6 +146,9 @@ const Home = () => {
                   type="text"
                   placeholder="Masukkan NIP/NPnP"
                 />
+                <p className="text-sm font-semibold text-left">
+                  Masukkan NIP tanpa spasi
+                </p>
               </div>
               {message && <p className="mb-2 text-red-500">{message}</p>}
               <button
