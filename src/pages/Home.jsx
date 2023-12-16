@@ -1,9 +1,8 @@
 import { useState } from "react";
 import GetStarted from "../assets/get_started.jpg";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { data } from "../utils/data.js";
-import { getDatabase, ref, push, get } from "firebase/database";
+import { getDatabase, ref, get } from "firebase/database";
 import Logo from "../assets/ic_logo.png";
 
 import { app } from "../config/Firebase";
@@ -53,9 +52,6 @@ const Home = () => {
               // Simpan NPnP dan nama ke dalam localStorage
               localStorage.setItem("number", number);
               localStorage.setItem("name", name);
-              // Menambahkan serialNumber ke dalam localStorage
-              const serialNumber = data.indexOf(user) + 1; // Mendapatkan urutan dari data
-              localStorage.setItem("serialNumber", serialNumber);
 
               // Arahkan ke halaman /vote
               navigate("/vote", { state: { number } });

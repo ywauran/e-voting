@@ -15,7 +15,15 @@ import Thelma from "../assets/thelma.jpg";
 import Febe from "../assets/febe.jpg";
 import ImageWaiting from "../assets/waiting.jpg";
 import ModalConfirmation from "../components/ModalConfirmation";
-import { getDatabase, ref, push, get } from "firebase/database";
+import {
+  getDatabase,
+  ref,
+  push,
+  set,
+  get,
+  update,
+  child,
+} from "firebase/database";
 
 import { app } from "../config/Firebase";
 
@@ -99,15 +107,10 @@ const Vote = () => {
   useEffect(() => {
     const storedName = localStorage.getItem("name");
     const storedNPnP = localStorage.getItem("number");
-    const serialNumber = localStorage.getItem("serialNumber");
 
     // Check if values exist in localStorage before setting state
     if (storedName) {
       setName(storedName);
-    }
-
-    if (serialNumber) {
-      setSerialNumber(serialNumber);
     }
 
     // Assuming NPnP is a number, check if it's not null or undefined
@@ -162,13 +165,20 @@ const Vote = () => {
   const handleVoteSubmit = () => {
     const votesRef = ref(database, "votes");
 
+    // Get the current maximum serial number
     get(votesRef)
       .then((snapshot) => {
         let userAlreadyVoted = false;
+        let maxSerialNumber = 0;
+
         snapshot.forEach((childSnapshot) => {
           const vote = childSnapshot.val();
           if (vote.name === name) {
             userAlreadyVoted = true;
+          }
+
+          if (vote.serialNumber > maxSerialNumber) {
+            maxSerialNumber = vote.serialNumber;
           }
         });
 
@@ -176,16 +186,20 @@ const Vote = () => {
           setError(`Maaf, ${name} sudah melakukan vote sebelumnya.`);
           setOpenModalConfirmation(false);
         } else {
+          const newSerialNumber = maxSerialNumber + 1;
+          setSerialNumber(newSerialNumber);
           const newVote = {
             name,
             selectedNomineeAsn,
             selectedNomineeAsnName,
             selectedNomineeThl,
             selectedNomineeThlName,
-            serialNumber: serialNumber,
+            serialNumber: newSerialNumber,
             timestamp: Date.now(),
           };
-          push(votesRef, newVote)
+
+          // Add the new vote with the incremented serial number
+          set(child(votesRef, String(newSerialNumber)), newVote)
             .then(() => {
               setIsVoting(true);
               setOpenModalConfirmation(false);
