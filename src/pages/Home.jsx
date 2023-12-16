@@ -3,12 +3,17 @@ import GetStarted from "../assets/get_started.jpg";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { data } from "../utils/data.js";
+import { getDatabase, ref, push, get } from "firebase/database";
+
+import { app } from "../config/Firebase";
 
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
   const [number, setNumber] = useState("");
   const [message, setMessage] = useState("");
+  const [isVoting, setIsVoting] = useState(false);
+  const database = getDatabase(app);
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -26,13 +31,36 @@ const Home = () => {
 
       if (user) {
         const { name, number } = user;
+        const votesRef = ref(database, "votes");
+        get(votesRef)
+          .then((snapshot) => {
+            let userAlreadyVoted = false;
 
-        // Simpan NPnP dan nama ke dalam localStorage
-        localStorage.setItem("number", number);
-        localStorage.setItem("name", name);
+            snapshot.forEach((childSnapshot) => {
+              const vote = childSnapshot.val();
+              if (vote.name === name) {
+                userAlreadyVoted = true;
+              }
+            });
 
-        // Arahkan ke halaman /vote
-        navigate("/vote", { state: { number } });
+            if (userAlreadyVoted) {
+              setIsVoting(true);
+              setTimeout(() => {
+                setIsVoting(false);
+              }, 1500);
+            } else {
+              // Simpan NPnP dan nama ke dalam localStorage
+              localStorage.setItem("number", number);
+              localStorage.setItem("name", name);
+
+              // Arahkan ke halaman /vote
+              navigate("/vote", { state: { number } });
+            }
+          })
+          .catch((error) => {
+            console.error("Error checking existing vote: ", error);
+            // Handle error accordingly
+          });
       } else {
         // Jika NPnP tidak ditemukan, atur pesan kesalahan
         setMessage("NIP/NPnP tidak valid");
@@ -93,10 +121,15 @@ const Home = () => {
             <h2 className="mt-4 mb-4 text-lg font-bold">
               Masuk Menggunakan NIP/NPnP
             </h2>
+            {isVoting && (
+              <p className="p-1 text-sm font-semibold text-white bg-red-500">
+                Anda sudah melakukan voting sebelumnya
+              </p>
+            )}
             <form>
               <div className="mb-4">
                 <label
-                  className="block mb-2 font-bold text-gray-700"
+                  className="block mb-2 font-bold text-left text-gray-700"
                   htmlFor="username"
                 >
                   NIP/NPnP
