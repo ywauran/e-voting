@@ -86,6 +86,9 @@ const Vote = () => {
   const [openModalConfirmation, setOpenModalConfirmation] = useState(false);
   const database = getDatabase(app);
 
+  const [selectedNomineeAsnName, setSelectedNomineeAsnName] = useState("");
+  const [selectedNomineeThlName, setSelectedNomineeThlName] = useState("");
+
   const handleTabChange = (tab) => {
     setActiveTab(tab);
     setError(null);
@@ -113,9 +116,15 @@ const Vote = () => {
       setSelectedNomineeAsn(
         selectedNomineeAsn === nomineeId ? null : nomineeId
       );
+      setSelectedNomineeAsnName(
+        dummyNomineesASN.find((nominee) => nominee.id === nomineeId)?.name || ""
+      );
     } else {
       setSelectedNomineeThl(
         selectedNomineeThl === nomineeId ? null : nomineeId
+      );
+      setSelectedNomineeThlName(
+        dummyNomineesTHL.find((nominee) => nominee.id === nomineeId)?.name || ""
       );
     }
     setError(null);
@@ -164,7 +173,9 @@ const Vote = () => {
           const newVote = {
             name,
             selectedNomineeAsn,
+            selectedNomineeAsnName,
             selectedNomineeThl,
+            selectedNomineeThlName,
             timestamp: Date.now(),
           };
           push(votesRef, newVote)
@@ -186,9 +197,17 @@ const Vote = () => {
   };
 
   const onClose = () => {
-    if (selectedNomineeAsn === null || selectedNomineeThl === null) {
+    if (selectedNomineeAsn === null && selectedNomineeThl === null) {
       setError(
         "Silakan pilih satu calon untuk setiap kategori sebelum mengirim suara Anda."
+      );
+    } else if (selectedNomineeAsn === null) {
+      setError(
+        "Silakan pilih satu calon  kategori pada kategori ASN sebelum mengirim suara Anda."
+      );
+    } else if (selectedNomineeThl === null) {
+      setError(
+        "Silakan pilih satu calon  kategori pada kategori THL sebelum mengirim suara Anda."
       );
     } else {
       setOpenModalConfirmation(true);
@@ -201,12 +220,24 @@ const Vote = () => {
         <ModalConfirmation
           onSubmit={handleVoteSubmit}
           onClose={setOpenModalConfirmation}
+          selectedNomineeAsnName={selectedNomineeAsnName}
+          selectedNomineeThlName={selectedNomineeThlName}
         />
       )}
 
       <h2 className="text-2xl text-left">
         Halo, <span className="font-bold">{name}</span>
       </h2>
+      {!isVoting ? (
+        <>
+          <p className="font-semibold text-left text-gray-700">
+            Di bawah ini merupakan daftar nominasi employee of the year.
+          </p>
+          <p className="text-left text-gray-700">
+            Silahkan pilih salah satu nama.
+          </p>
+        </>
+      ) : null}
 
       {isVoting ? (
         <>
@@ -230,7 +261,7 @@ const Vote = () => {
                 }`}
                 onClick={() => handleTabChange("asn")}
               >
-                Nominatif ASN
+                Nominasi ASN
               </button>
               <button
                 className={`${
@@ -240,14 +271,14 @@ const Vote = () => {
                 }`}
                 onClick={() => handleTabChange("thl")}
               >
-                Nominatif THL
+                Nominasi THL
               </button>
             </div>
 
             <h3 className="text-xl font-semibold text-left">
               {activeTab === "asn"
-                ? "Nominatif ASN Employee of the year 2023"
-                : "Nominatif THL Employee of the year 2023"}
+                ? "Nominasi ASN Employee of the year 2023"
+                : "Nominasi THL Employee of the year 2023"}
             </h3>
             {activeTab === "asn" ? (
               <>

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { data } from "../utils/data.js";
 import { getDatabase, ref, push, get } from "firebase/database";
+import Logo from "../assets/ic_logo.png";
 
 import { app } from "../config/Firebase";
 
@@ -72,6 +73,7 @@ const Home = () => {
 
   return (
     <>
+      <img src={Logo} alt="" className="w-32 h-32 mx-auto" />
       <h1 className="text-3xl font-bold text-center text-gray-800">
         Dikda Prov Sulut Employee of the year
       </h1>

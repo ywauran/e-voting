@@ -1,4 +1,9 @@
-const ModalConfirmation = ({ onClose, onSubmit }) => {
+const ModalConfirmation = ({
+  onClose,
+  onSubmit,
+  selectedNomineeAsnName,
+  selectedNomineeThlName,
+}) => {
   return (
     <div className="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-gray-800 bg-opacity-50">
       <div className="p-8 bg-white rounded shadow-md">
@@ -27,12 +32,24 @@ const ModalConfirmation = ({ onClose, onSubmit }) => {
             <span className="sr-only">Close modal</span>
           </button>
         </div>
+
         <h4 className="mt-4 mb-1 text-lg font-bold">
           Sudah yakin dengan pilihan anda? Silahkan cek kembali
         </h4>
         <p className="text-xs text-red-600">
           Anda hanya bisa melakukan vote 1x
         </p>
+
+        <div className="mt-4">
+          <h5>
+            ASN yang dipilih :{" "}
+            <span className="font-bold">{selectedNomineeAsnName}</span>
+          </h5>
+          <h5>
+            THL yang dipilih :{" "}
+            <span className="font-bold">{selectedNomineeThlName}</span>
+          </h5>
+        </div>
         <div className="flex justify-center mt-4 space-x-2 ">
           <button
             onClick={() => onSubmit()}
