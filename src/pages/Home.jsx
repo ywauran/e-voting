@@ -81,7 +81,7 @@ const Home = () => {
         DIKDA Prov Sulut Employee of the year
       </h1>
       <p className="mt-2 font-semibold text-center text-gray-700">
-        Dalam aplikasi akan menampilkan 6 Nominasi ASN dan Nominasi THL, Mari
+        Dalam aplikasi akan menampilkan 6 Nominasi ASN dan 6 Nominasi THL, Mari
         berpartipasi memilih ASN dan THL yang berkinerja dan berprestasi menurut
         anda!!
       </p>
