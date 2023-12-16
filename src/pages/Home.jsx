@@ -20,7 +20,7 @@ const Home = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     if (number === "") {
-      setMessage("NPnP/NIP harus diisi");
+      setMessage("NIP/NPnP harus diisi");
     } else if (number) {
       const user = data.find((item) => item.number === number);
 
@@ -35,7 +35,7 @@ const Home = () => {
         navigate("/vote", { state: { number } });
       } else {
         // Jika NPnP tidak ditemukan, atur pesan kesalahan
-        setMessage("NPnP tidak valid");
+        setMessage("NIP/NPnP tidak valid");
       }
     } else {
       setMessage("Gagal");
@@ -45,7 +45,7 @@ const Home = () => {
   return (
     <>
       <h1 className="text-3xl font-bold text-center text-gray-800">
-        Dikda Prov Sulut Employee of the year
+        Dikda Prov Sulut Employee of the year
       </h1>
       <h2 className="mt-4 text-3xl font-bold text-center text-gray-400">
         Mari Mulai Voting
