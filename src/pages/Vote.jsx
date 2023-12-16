@@ -199,15 +199,15 @@ const Vote = () => {
   const onClose = () => {
     if (selectedNomineeAsn === null && selectedNomineeThl === null) {
       setError(
-        "Silakan pilih satu calon untuk setiap kategori sebelum mengirim suara Anda."
+        "Silakan pilih satu nominasi untuk setiap kategori sebelum mengirim suara Anda."
       );
     } else if (selectedNomineeAsn === null) {
       setError(
-        "Silakan pilih satu calon pada kategori ASN sebelum mengirim suara Anda."
+        "Silakan pilih satu nominasi pada kategori ASN sebelum mengirim suara Anda."
       );
     } else if (selectedNomineeThl === null) {
       setError(
-        "Silakan pilih satu calon pada kategori THL sebelum mengirim suara Anda."
+        "Silakan pilih satu nominasi pada kategori THL sebelum mengirim suara Anda."
       );
     } else {
       setOpenModalConfirmation(true);
