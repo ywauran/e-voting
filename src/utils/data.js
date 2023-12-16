@@ -150,7 +150,7 @@ export const data = [
     name: "Vecky Pangkerego, S.Pd, M.Pd",
   },
   {
-    number: "19851113201102001",
+    number: "198511132011021001",
     name: "Bravo Turangan, ST",
   },
   { number: "19630427199103000", name: "dr. Liesje G.L. Punuh, M.Kes" },
