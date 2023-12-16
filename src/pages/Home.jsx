@@ -30,7 +30,6 @@ const Home = () => {
     } else if (number) {
       const user = data.find((item) => item.number === number);
 
-      console.log(data.length);
       if (user) {
         const { name, number } = user;
         const votesRef = ref(database, "votes");
@@ -54,6 +53,9 @@ const Home = () => {
               // Simpan NPnP dan nama ke dalam localStorage
               localStorage.setItem("number", number);
               localStorage.setItem("name", name);
+              // Menambahkan serialNumber ke dalam localStorage
+              const serialNumber = data.indexOf(user) + 1; // Mendapatkan urutan dari data
+              localStorage.setItem("serialNumber", serialNumber);
 
               // Arahkan ke halaman /vote
               navigate("/vote", { state: { number } });

@@ -80,6 +80,7 @@ const Vote = () => {
   const [name, setName] = useState("");
   const [selectedNomineeAsn, setSelectedNomineeAsn] = useState(null);
   const [selectedNomineeThl, setSelectedNomineeThl] = useState(null);
+  const [serialNumber, setSerialNumber] = useState(0);
   const [activeTab, setActiveTab] = useState("asn");
   const [error, setError] = useState(null);
   const [isVoting, setIsVoting] = useState(false);
@@ -98,10 +99,15 @@ const Vote = () => {
   useEffect(() => {
     const storedName = localStorage.getItem("name");
     const storedNPnP = localStorage.getItem("number");
+    const serialNumber = localStorage.getItem("serialNumber");
 
     // Check if values exist in localStorage before setting state
     if (storedName) {
       setName(storedName);
+    }
+
+    if (serialNumber) {
+      setSerialNumber(serialNumber);
     }
 
     // Assuming NPnP is a number, check if it's not null or undefined
@@ -176,6 +182,7 @@ const Vote = () => {
             selectedNomineeAsnName,
             selectedNomineeThl,
             selectedNomineeThlName,
+            serialNumber: serialNumber,
             timestamp: Date.now(),
           };
           push(votesRef, newVote)
@@ -247,6 +254,11 @@ const Vote = () => {
             <p className="mt-2 text-lg text-gray-600">
               Terima kasih atas partisipasi Anda dalam memberikan suara.
             </p>
+            <h5 className="text-gray-800">
+              Anda mendapatkan nomor urut{" "}
+              <span className="font-bold">{serialNumber}</span>. Jangan lupa
+              simpan screenshoot nomor ini
+            </h5>
           </div>
         </>
       ) : (
