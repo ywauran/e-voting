@@ -55,7 +55,7 @@ export const data = [
   { number: "20181199006221", name: "JEIN DJAPALU" },
   { number: "20181198008081", name: "RALVI KRISTIAN KORAH" },
   { number: "20121197811271", name: "VERNA ENJEL ATMINARI TUMANDUK" },
-  { number: "20182196705201", name: "ASRIYANI TAMBONE" },
+  { number: "20122196705201", name: "ASRIYANI TAMBONE" },
   { number: "20172197809211", name: "DIANE IVONE RASU" },
   { number: "20172198403161", name: "MERRY LIESKE TIMBULENG" },
   { number: "20142197202291", name: "PAULINA SUNDALANGI" },
