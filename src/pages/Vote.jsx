@@ -203,11 +203,11 @@ const Vote = () => {
       );
     } else if (selectedNomineeAsn === null) {
       setError(
-        "Silakan pilih satu calon  kategori pada kategori ASN sebelum mengirim suara Anda."
+        "Silakan pilih satu calon pada kategori ASN sebelum mengirim suara Anda."
       );
     } else if (selectedNomineeThl === null) {
       setError(
-        "Silakan pilih satu calon  kategori pada kategori THL sebelum mengirim suara Anda."
+        "Silakan pilih satu calon pada kategori THL sebelum mengirim suara Anda."
       );
     } else {
       setOpenModalConfirmation(true);
