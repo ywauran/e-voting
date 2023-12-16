@@ -3,18 +3,16 @@ import ImageDefault from "../assets/image_default.jpg";
 const CardNominatif = () => {
   return (
     <div className="flex items-center justify-center ">
-      <div className=" mx-auto bg-white rounded-3xl shadow-xl p-4">
-        <div className="grid rounded-3xl max-w-sm shadow-sm place-items-center  flex-col">
+      <div className="p-4 mx-auto bg-white shadow-xl rounded-3xl">
+        <div className="grid flex-col max-w-sm shadow-sm rounded-3xl place-items-center">
           <img
             src={ImageDefault}
-            className="rounded-t-3xl justify-center grid h-80 object-cover"
+            className="grid justify-center object-cover rounded-t-3xl h-80"
             alt="Yohanes Harke Wauran"
           />
-          <div className="group p-6 grid z-10">
-            <h4 className="group-hover:text-cyan-700 font-bold sm:text-2xl line-clamp-2">
-              Yohanes Harke Wauran
-            </h4>
-            <p className="text-slate-400 text-base pt-2 font-semibold">
+          <div className="grid p-6 ">
+            <h4 className="font-bold sm:text-2xl ">Yohanes Harke Wauran</h4>
+            <p className="pt-2 text-base font-semibold text-slate-400">
               Balai Teknologi, Informasi dan Komunikasi Pendidikan
             </p>
           </div>

@@ -6,7 +6,7 @@ const ModalConfirmation = ({
 }) => {
   return (
     <div className="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-gray-800 bg-opacity-50">
-      <div className="p-8 bg-white rounded shadow-md">
+      <div className="z-50 p-8 bg-white rounded shadow-md">
         <div className="flex justify-end">
           <button
             type="button"
