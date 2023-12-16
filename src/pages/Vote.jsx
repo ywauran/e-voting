@@ -26,6 +26,7 @@ import {
 } from "firebase/database";
 
 import { app } from "../config/Firebase";
+import Footer from "../components/Footer";
 
 const dummyNomineesTHL = [
   {
@@ -331,7 +332,7 @@ const Vote = () => {
                               className="grid justify-center object-cover rounded-t-3xl h-80"
                               alt="Yohanes Harke Wauran"
                             />
-                            <div className="grid p-6  group">
+                            <div className="grid p-6 group">
                               <h4 className="font-bold group-hover:text-cyan-700 sm:text-2xl line-clamp-2">
                                 {nominee.name}
                               </h4>
