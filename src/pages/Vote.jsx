@@ -7,6 +7,12 @@ import Asri from "../assets/asri.jpg";
 import Atfri from "../assets/atfri.jpg";
 import Calvyn from "../assets/calvin.jpeg";
 import Sendi from "../assets/sendi.jpg";
+import Sabeth from "../assets/sabeth.jpg";
+import Feny from "../assets/feny.jpg";
+import Adolf from "../assets/adolf.jpg";
+import Cicilia from "../assets/cicilia.jpg";
+import Thelma from "../assets/thelma.jpg";
+import Febe from "../assets/febe.jpg";
 import ImageWaiting from "../assets/waiting.jpg";
 import ModalConfirmation from "../components/ModalConfirmation";
 import { getDatabase, ref, push, get } from "firebase/database";
@@ -59,6 +65,15 @@ const imageMap = {
   4: Sendi,
   5: Thalia,
   6: Try,
+};
+
+const imageMapASN = {
+  1: Cicilia,
+  2: Feny,
+  3: Sabeth,
+  4: Thelma,
+  5: Adolf,
+  6: Febe,
 };
 
 const Vote = () => {
@@ -255,7 +270,7 @@ const Vote = () => {
                         <div className="p-4 mx-auto bg-white shadow-xl rounded-3xl">
                           <div className="grid flex-col max-w-sm shadow-sm rounded-3xl place-items-center">
                             <img
-                              src={ImageDefault}
+                              src={imageMapASN[nominee.id] || ImageDefault} // Jika tidak ada pemetaan, tampilkan gambar default (Image6)
                               className="grid justify-center object-cover rounded-t-3xl h-80"
                               alt="Yohanes Harke Wauran"
                             />
@@ -294,7 +309,7 @@ const Vote = () => {
                       <div className="p-4 mx-auto bg-white shadow-xl rounded-3xl">
                         <div className="grid flex-col max-w-sm shadow-sm rounded-3xl place-items-center">
                           <img
-                            src={imageMap[nominee.id] || Try} // Jika tidak ada pemetaan, tampilkan gambar default (Image6)
+                            src={imageMap[nominee.id] || ImageDefault} // Jika tidak ada pemetaan, tampilkan gambar default (Image6)
                             className="grid justify-center object-cover rounded-t-3xl h-80"
                             alt="Yohanes Harke Wauran"
                           />
