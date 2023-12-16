@@ -28,7 +28,7 @@ const ModalConfirmation = ({ onClose, onSubmit }) => {
           </button>
         </div>
         <h4 className="mt-4 mb-1 text-lg font-bold">
-          Sudah yakin dengan pilihan anda? Silahkan kembali
+          Sudah yakin dengan pilihan anda? Silahkan cek kembali
         </h4>
         <p className="text-xs text-red-600">
           Anda hanya bisa melakukan vote 1x
