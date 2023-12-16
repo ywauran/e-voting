@@ -2,7 +2,7 @@ export const dummyNomineesASN = [
   {
     id: "1",
     name: " Cicilia R. Damasar, S.E.",
-    position: "Keuangan",
+    position: "Sekretariat",
   },
   {
     id: "2",
@@ -12,7 +12,7 @@ export const dummyNomineesASN = [
   {
     id: "3",
     name: "Sabeth",
-    position: "Keuangan",
+    position: "Sekretariat",
   },
   {
     id: "4",
@@ -22,12 +22,12 @@ export const dummyNomineesASN = [
   {
     id: "5",
     name: "Adolof Abadi, A.Md.KP",
-    position: "Kepegawaian",
+    position: "Sekretariat",
   },
   {
     id: "6",
     name: "Febe Roeroe, S.E.",
-    position: "Keuangan",
+    position: "Sekretariat",
   },
 ];
 

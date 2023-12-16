@@ -29,19 +29,19 @@ const dummyNomineesTHL = [
   {
     id: "2",
     name: "Atfri Makarawung",
-    position: "Department of Technology",
+    position: "Sekretariat",
     photo: "../assets/thalia.jpg",
   },
   {
     id: "3",
     name: "Calvyn G. Piri",
-    position: "Department of Science",
+    position: "SMA",
     photo: "../assets/thalia.jpg",
   },
   {
     id: "4",
     name: "Sendi K. Waworuntu",
-    position: "Research and Development",
+    position: "SMA",
     photo: "../assets/thalia.jpg",
   },
   {
