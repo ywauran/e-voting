@@ -257,7 +257,7 @@ export const data = [
   { name: "Juultje Kapoyos", number: "196906011991032007" },
   { name: "Denny Dimpudus", number: "196907061003031013" },
   { name: "Kreslita Nelwan, A.Md", number: "198011202010012005" },
-  { name: "Sonny N. Lubis", number: "197111041988021002" },
+  { name: "Sonny N. Lubis", number: "1971110419988021002" },
   { name: "Stanly Tukunang, A.Md.", number: "198204052010011012" },
   { name: "Nofvel Gorung, S.Pd, M.Pd", number: "196911232007012016" },
   { name: "Dr. Danny Waha, S.Pd, M.Si", number: "197111022009021001" },
