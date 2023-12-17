@@ -13,7 +13,7 @@ function App() {
       </header> */}
       <main>
         <Routes>
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dikda/employee/dashboard" element={<Dashboard />} />
           <Route path="/" element={<Home />} />
           <Route path="/vote" element={<Vote />} />
         </Routes>
