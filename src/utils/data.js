@@ -125,6 +125,7 @@ export const data = [
   },
   { number: "20191199201061", name: "JANKRIS PUSUT" },
   { number: "20212198703232", name: "FINNY YATININGSI AMBOUPE" },
+  { number: "20212198108201", name: "NATALIA CLAUDIA MERKA DARISA, S.E" },
   { number: "20211199209041", name: "STENLY MARLON SOMPOTAN" },
   { number: "20211196801131", name: "JANTJE EDUARD TAMON" },
   { number: "20212199711211", name: "TESALONIKA BEILBY KAPARANG" },
