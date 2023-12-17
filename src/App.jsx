@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Vote from "./pages/Vote";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
@@ -12,9 +13,9 @@ function App() {
       </header> */}
       <main>
         <Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/" element={<Home />} />
           <Route path="/vote" element={<Vote />} />
-          <Route path="/contact" element={<h1>Contact</h1>} />
         </Routes>
       </main>
       <Footer />
