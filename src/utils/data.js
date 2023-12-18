@@ -172,7 +172,7 @@ export const data = [
     name: "Moh. Sadad Assagaf, SE, M.Si",
   },
   {
-    number: "198211072010012009",
+    number: "197801022009031001",
     name: "Minggus Th. Diamanti, S.Pd",
   },
   {
