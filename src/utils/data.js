@@ -228,7 +228,7 @@ export const data = [
   { name: "Honny J.L Rewur, S.Pd, MAP", number: "196701151990032006" },
   { name: "Jeane E. S. Regar, S.Sos, MAP", number: "196906251991032004" },
   { name: "Arthur T. Tompodung, S.Pd", number: "197004021990031008" },
-  { name: "Jefri Refly Worung", number: "198009142010011000" },
+  { name: "Jefri Refly Worung", number: "198009142010011011" },
   { name: "Stevi Tormin Karongi, SPd", number: "197703062006041003" },
   { name: "Marthin P. Wowor, SE", number: "196703181986031002" },
   { name: "Albino Rengkuan, S.Pd", number: "197904182010011002" },
