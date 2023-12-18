@@ -164,8 +164,8 @@ export const data = [
     name: "Megani R.N. Pantow, ST., M.Ars",
   },
   {
-    number: "Retno Kalatiku, S.STP, MAP",
-    name: "199106182010101001",
+    name: "Retno Kalatiku, S.STP, MAP",
+    number: "199106182010101001",
   },
   {
     number: "197801022009031001",
@@ -254,11 +254,11 @@ export const data = [
   { name: "Handri H. Suwadji, S.Pd", number: "198601122014031002" },
   { name: "Obednedjo Tamedia", number: "196604091987031005" },
   { name: "Jhon Tumangkeng", number: "196607111989031010" },
-  { name: "Coni F. Pantow", number: "19660215 1990032007" },
+  { name: "Coni F. Pantow", number: "196602151990032007" },
   { name: "Juultje Kapoyos", number: "196906011991032007" },
   { name: "Denny Dimpudus", number: "196907061003031013" },
   { name: "Kreslita Nelwan, A.Md", number: "198011202010012005" },
-  { name: "Sonny N. Lubis", number: "1971110419988021002" },
+  { name: "Sonny N. Lubis", number: "197111041998021002" },
   { name: "Stanly Tukunang, A.Md.", number: "198204052010011012" },
   { name: "Nofvel Gorung, S.Pd, M.Pd", number: "196911232007012016" },
   { name: "Dr. Danny Waha, S.Pd, M.Si", number: "197111022009021001" },
@@ -308,5 +308,5 @@ export const data = [
   { name: "Dra. D. Vony Tambuwun. M.Pd", number: "196512091991032004" },
   { name: "Dra. Retno Dewi, M. Pd", number: "196603021997022002" },
   { name: "Machson Kentale", number: "196905082000121001" },
-  { name: "Dra. Felma F. Tangkulung, M.Pd", number: "1968020120062001" },
+  { name: "Dra. Felma F. Tangkulung, M.Pd", number: "196802012006042001" },
 ];
