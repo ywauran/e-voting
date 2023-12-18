@@ -282,7 +282,7 @@ export const data = [
   { name: "Yuliana Paulina Polii, S.Pd", number: "196907092014112002" },
   { name: "Junio G.A. Lala, S.Tr.IP", number: "200006302023081001" },
   { name: "Albert N Londa, S.Pd, ME", number: "196908262003121002" },
-  { name: "Meyneke Kasenda, S.Pd", number: "1980051220100112009" },
+  { name: "Meyneke Kasenda, S.Pd", number: "198005122010012009" },
   { name: "Freetje M. Jacob, SE", number: "196903081992032009" },
   { name: "Kyrieeleison T. Laloan, S.Sos", number: "198801112011021001" },
   { name: "Fitria Merfy Tampa, S.Pd", number: "197809032010012013" },
